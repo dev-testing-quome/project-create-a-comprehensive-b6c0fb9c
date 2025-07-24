@@ -1,0 +1,144 @@
+/* Mobile-first responsive utilities */
+.responsive-grid {{
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}}
+
+@media (min-width: 640px) {{
+  .responsive-grid-sm-2 {{ grid-template-columns: repeat(2, 1fr); }}
+  .responsive-grid-sm-3 {{ grid-template-columns: repeat(3, 1fr); }}
+  .responsive-grid-sm-4 {{ grid-template-columns: repeat(4, 1fr); }}
+}}
+
+@media (min-width: 768px) {{
+  .responsive-grid-md-2 {{ grid-template-columns: repeat(2, 1fr); }}
+  .responsive-grid-md-3 {{ grid-template-columns: repeat(3, 1fr); }}
+  .responsive-grid-md-4 {{ grid-template-columns: repeat(4, 1fr); }}
+  .responsive-grid-md-5 {{ grid-template-columns: repeat(5, 1fr); }}
+  .responsive-grid-md-6 {{ grid-template-columns: repeat(6, 1fr); }}
+}}
+
+@media (min-width: 1024px) {{
+  .responsive-grid-lg-2 {{ grid-template-columns: repeat(2, 1fr); }}
+  .responsive-grid-lg-3 {{ grid-template-columns: repeat(3, 1fr); }}
+  .responsive-grid-lg-4 {{ grid-template-columns: repeat(4, 1fr); }}
+  .responsive-grid-lg-5 {{ grid-template-columns: repeat(5, 1fr); }}
+  .responsive-grid-lg-6 {{ grid-template-columns: repeat(6, 1fr); }}
+}}
+
+/* Responsive spacing */
+.responsive-stack {{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}}
+
+@media (min-width: 768px) {{
+  .responsive-stack-md-row {{
+    flex-direction: row;
+    gap: var(--space-4);
+  }}
+}}
+
+/* Responsive text */
+.responsive-text {{
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+}}
+
+@media (min-width: 768px) {{
+  .responsive-text {{ font-size: var(--text-base); }}
+}}
+
+@media (min-width: 1024px) {{
+  .responsive-text {{ font-size: var(--text-lg); }}
+}}
+
+/* Container queries support */
+@container (min-width: 400px) {{
+  .container-responsive {{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }}
+}}
+
+@container (min-width: 600px) {{
+  .container-responsive {{
+    grid-template-columns: repeat(3, 1fr);
+  }}
+}}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {{
+  .touch-target {{
+    min-height: 44px;
+    min-width: 44px;
+  }}
+  
+  .hover-effect:hover {{
+    /* Disable hover effects on touch devices */
+    transform: none;
+    box-shadow: none;
+  }}
+}}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {{
+  *,
+  *::before,
+  *::after {{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }}
+}}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {{
+  .themed-border {{
+    border-width: 2px;
+  }}
+  
+  .themed-text {{
+    font-weight: var(--font-semibold);
+  }}
+}}
+
+/* Print styles */
+@media print {{
+  .no-print {{
+    display: none !important;
+  }}
+  
+  .print-only {{
+    display: block !important;
+  }}
+  
+  * {{
+    color: black !important;
+    background: white !important;
+    box-shadow: none !important;
+  }}
+}}
+
+/* Focus visible styles */
+.focus-visible {{
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}}
+
+/* Screen reader only content */
+.sr-only {{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}}
